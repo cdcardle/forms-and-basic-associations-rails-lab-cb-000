@@ -20,12 +20,12 @@ class Song < ActiveRecord::Base
   end
 
   def note_contents=()
-    
+
   end
 
   def note_contents
     self.notes.each do |note|
-      note.content
+      puts note.content
     end
   end
 end
