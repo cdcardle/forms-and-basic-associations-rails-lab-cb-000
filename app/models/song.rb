@@ -20,9 +20,9 @@ class Song < ActiveRecord::Base
   end
 
   def note_contents=(contents)
-    new_contents = contents.reject(&:empty?)
+    contents = contents.reject(&:empty?)
     contents.map do |content|
-      note = Note.find_or_create_by(content: new_contents)
+      note = Note.find_or_create_by(content: contents)
       self.notes << note
     end
   end
