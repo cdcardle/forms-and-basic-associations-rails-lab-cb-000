@@ -21,7 +21,8 @@ class Song < ActiveRecord::Base
 
   def note_contents=(contents)
     contents.map do |content|
-      note = Note.find_or_create_by(content: content.strip)
+      stripped = content.strip
+      note = Note.find_or_create_by(content: stripped)
       self.notes << note
     end
   end
